@@ -1,6 +1,32 @@
 # dicas-typescript
 
+1.  [Omit](#omit)
 1.  [Pick](#pick)
+
+## **Omit**
+
+O omit permite criar um novo tipo baseado em um já existente, mas selecionando as propriedades que não queremos.
+
+```javascript
+type Usuario = {
+  nome: string,
+  idade: number,
+  email: string,
+};
+
+type UsuarioSemEmail = Omit<Pessoa, "email">;
+
+const usuario: Usuario = {
+  nome: "Maria",
+  idade: "30",
+  email: "maria@email.com",
+};
+
+const usuarioSemEmail: UsuarioSemEmail = {
+  nome: "Maria",
+  idade: "30",
+};
+```
 
 ## **Pick**
 
@@ -8,16 +34,22 @@ O pick permite criar um novo tipo baseado em um já existente, mas selecionando 
 
 ```javascript
 type Usuario = {
-  name: string,
-  age: number,
+  nome: string,
+  idade: number,
   email: string,
 };
 
-type SemEmail = Pick<Pessoa, "name" | "age">;
+type SemEmail = Pick<Pessoa, "nome" | "idade">;
+
+const usuario: Usuario = {
+  nome: "Maria",
+  idade: "30",
+  email: "maria@email.com",
+};
 
 const usuarioSemEmail: UsuarioSemEmail = {
-  name: "Aunio",
-  age: 32,
+  nome: "Maria",
+  idade: "30",
 };
 ```
 
